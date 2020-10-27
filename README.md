@@ -1,2 +1,2 @@
 # inventory_analytics
-Inventory Analytics System
+Inventory Analytics Tool
