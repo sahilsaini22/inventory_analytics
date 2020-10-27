@@ -1,0 +1,56 @@
+﻿<Window x:Class="Inventory_Management.Window5"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Inventory_Management"
+        mc:Ignorable="d"
+        Background="#FFDFFBFF"
+        WindowStartupLocation="CenterScreen"
+        
+        Title="Inventory Analytics - Move Item" Height="218.722" Width="279.053">
+    <Grid Margin="2,2,2,2">
+        <Border Margin="0,0,-0.333,-0.667" BorderThickness="2" BorderBrush="Black" >
+
+            <StackPanel Orientation="Vertical" Margin="0,0,-0.333,0">
+                <StackPanel Margin="5,5,0,0" Orientation="Vertical">
+                    <TextBlock TextWrapping="Wrap" Text="Move Item" Margin="0,0,36,0" FontWeight="Bold" FontSize="18" Height="23"/>
+                </StackPanel>
+
+                <StackPanel Margin="5,15,10.667,0" Orientation="Vertical" Height="137">
+                    <StackPanel Margin="5,2,0,3" Orientation="Horizontal" Height="18">
+                        <TextBlock HorizontalAlignment="Left" Margin="0,0,40,0" IsEnabled="False" TextWrapping="Wrap" Text="Quantity in Inventory" VerticalAlignment="Top"/>
+                        <TextBox x:Name="T_Quan"  IsEnabled="False" Width="50"  TextChanged="T_Quan_TextChanged" />
+                        <Button x:Name="B_Up" IsEnabled="False" ToolTip="Move items from Store to Inventory"  Margin="0,0,0,0" Content="˄" Width="20" RenderTransformOrigin="0.5,0.5" Click="B_Up_Add" Height="18" VerticalAlignment="Bottom"  />
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"  Margin="67,8,0.667,0" Height="33">
+                        <TextBlock TextWrapping="Wrap"   Width="141" Height="40" Text="Number of items to move" Margin="0,2,0,-6.667"/>
+                        <TextBox Name="T_Move"  MaxLength="2" TextWrapping="Wrap"  Width="20" TextChanged="T_Move_TextChanged" Margin="0,0,0,10.333"/>
+
+
+                    </StackPanel>
+
+
+                    <StackPanel Orientation="Horizontal" Height="17" Margin="5,0,0,0">
+                        <TextBlock HorizontalAlignment="Left" Margin="0,0,60,0" IsEnabled="False" TextWrapping="Wrap" Text="Quantity on Shelf" VerticalAlignment="Top"/>
+                        <TextBox x:Name="T_Quan_Sh"  IsEnabled="False" Width="50"  TextChanged="T_Quan_TextChanged" Margin="0,0,0,0.333" Height="17" VerticalAlignment="Bottom" />
+                        <Button x:Name="B_Down" IsEnabled="False" ToolTip="Move items from Inventory to Store"  Content="˅" Width="20" Click="B_Up_Sub" Margin="0,0,0,0.333" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="20" Margin="25,14,0,0">
+                        <Button Content="Save"  Margin="40,0,00,0" Click="Save_Button_Click" Width="45" Height="20" VerticalAlignment="Bottom"/>
+                        <Button Content="Cancel" Margin="20,0,30,0" Click="Move_Button_Click" Width="45"/>
+
+                    </StackPanel>
+
+
+
+                </StackPanel>
+
+            </StackPanel>
+
+        </Border>
+
+    </Grid>
+</Window>

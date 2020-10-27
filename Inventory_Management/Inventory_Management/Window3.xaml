@@ -1,0 +1,126 @@
+﻿<Window x:Class="Inventory_Management.Window3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:Inventory_Management"
+        mc:Ignorable="d"
+        Background="#FFDFFBFF"
+        WindowStartupLocation="CenterScreen"
+        Title="Inventory Analytics" Height="390.871" Width="451.154"
+        >
+    <Grid>
+        <StackPanel Margin="0,10,0,0" Orientation="Vertical">
+            <StackPanel Margin="10,0,0.333,0" Orientation="Horizontal" Height="300">
+                <StackPanel Margin="0,0,0,263" Orientation="Vertical" >
+                    <TextBlock  HorizontalAlignment="Left" Height="34" TextWrapping="Wrap" Text="Maintenance - Add Item"  VerticalAlignment="Top" Width="290" FontSize="20" FontWeight="Bold" Margin="0,0,0,0"/>
+                </StackPanel>
+                <StackPanel Margin="0,0,0,263" Orientation="Horizontal">
+                    <ComboBox Name="Nav" Width="120" Margin="2,1,0,10.333" Height="21" VerticalAlignment="Center"  SelectionChanged="ComboBox_SelectionChanged_1">
+                        <ComboBoxItem>Suggestions</ComboBoxItem>
+                        <ComboBoxItem>Custom Filter</ComboBoxItem>
+                        <ComboBoxItem>View an item</ComboBoxItem>
+                        <ComboBoxItem Foreground="Green" IsSelected="True">Add an item</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+
+        </StackPanel>
+
+
+
+        <StackPanel Margin="5,35,10,10" Orientation="Horizontal">
+
+
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="295" VerticalAlignment="Top" Width="417" Margin="0,14,0,0">
+                <StackPanel Orientation="Vertical" Margin="60,0,0,0">
+                    <StackPanel Orientation="Horizontal" Margin="3,0,0,0" >
+                        <TextBlock TextWrapping="Wrap" Text="Enter Item Data" Margin="0,0,0,0" FontWeight="Bold" FontSize="18"/>
+                    </StackPanel>
+                    <StackPanel Margin="5,5,0,0" Orientation="Horizontal" Height="17">
+                        <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Item Number" VerticalAlignment="Top"/>
+                        <TextBox x:Name="Tbx_Num" Text="{Binding Number}" TextWrapping="Wrap" Margin="27,0,0,0"  Width="159" TextChanged="TextBox_TextChanged" Height="17" VerticalAlignment="Top"/>
+
+                    </StackPanel>
+                    <StackPanel Margin="5,8,0,0" Orientation="Horizontal" Height="17">
+                        <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Item Description" VerticalAlignment="Top"/>
+                        <TextBox x:Name="Tbx_Des" TextWrapping="Wrap" Margin="11,0,0,0" Text="{Binding Description}" Width="158" TextChanged="Tbx_Des_TextChanged" Height="17" VerticalAlignment="Top"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="5,8,0,0" Orientation="Horizontal" Height="22">
+                        <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Category" VerticalAlignment="Top"/>
+                        <ComboBox Name="Cat" Text="{Binding Category}" Margin="51,0,0,0" Width="158" SelectionChanged="Cat_SelectionChanged">
+                            <ComboBoxItem>Food</ComboBoxItem>
+                            <ComboBoxItem>Home</ComboBoxItem>
+                            <ComboBoxItem>Cosmetics</ComboBoxItem>
+                            <ComboBoxItem>Drinks</ComboBoxItem>
+                            <ComboBoxItem>Liqour</ComboBoxItem>
+                        </ComboBox>
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="5,0,72,0" Height="33">
+
+                        <TextBlock TextWrapping="Wrap" Text="Expiry Date" Margin="0,9,39,0" />
+                        <DatePicker x:Name="Exp" Text="{Binding Expiry}"  Width="158" Height="24" Margin="0,2,0,0.333"/>
+
+                    </StackPanel>
+
+                    <StackPanel Margin="5,2,0,3" Orientation="Horizontal" Height="26">
+                        <TextBlock HorizontalAlignment="Left" Margin="0,0,25,0" TextWrapping="Wrap" Text="Shelf Space" VerticalAlignment="Top"/>
+                        <DockPanel Margin="9,2" Width="160">
+                            <TextBox x:Name="Sl_St" TextWrapping="Wrap" Margin="3,0,0,0" Text="{Binding ElementName=Sl_S, Path=Value, UpdateSourceTrigger=PropertyChanged}"  TextAlignment="Right" Width="20" DockPanel.Dock="Right" TextChanged="Tbx_Des_TextChanged"/>
+                            <Slider Name="Sl_S" Value="{Binding Path=Space, Mode=TwoWay}" Maximum="10"  Width="130" IsSnapToTickEnabled="True"  />
+                        </DockPanel>
+                    </StackPanel>
+
+                    <StackPanel Margin="5,2,0,3" Orientation="Horizontal" Height="26">
+                        <TextBlock HorizontalAlignment="Left" Margin="0,0,25,0" TextWrapping="Wrap" Text="Profit Margin" VerticalAlignment="Top"/>
+                        <DockPanel Margin="0,2" Width="160">
+                            <TextBox x:Name="Sl_Pt" TextWrapping="Wrap" Margin="2,0,0,0" Text="{Binding ElementName=Sl_P, Path=Value, UpdateSourceTrigger=PropertyChanged}"  TextAlignment="Right" Width="20" DockPanel.Dock="Right" TextChanged="Tbx_Des2_TextChanged"/>
+                            <Slider Name="Sl_P" Value="{Binding Path=Margin, Mode=TwoWay}" Maximum="10"  Width="130" IsSnapToTickEnabled="True"  />
+                        </DockPanel>
+                    </StackPanel>
+
+                    <StackPanel Margin="5,2,0,3" Orientation="Horizontal" Height="26">
+                        <TextBlock HorizontalAlignment="Left" Margin="1,0,25,0" TextWrapping="Wrap" Text="Through-put" VerticalAlignment="Top"/>
+                        <DockPanel Margin="2,2" Width="160">
+                            <TextBox x:Name="Sl_Tt" TextWrapping="Wrap" Margin="2,0,0,0" Text="{Binding ElementName=Sl_T, Path=Value, UpdateSourceTrigger=PropertyChanged}"  TextAlignment="Right" Width="20" DockPanel.Dock="Right" TextChanged="Tbx_Des3_TextChanged"/>
+                            <Slider Name="Sl_T" Value="{Binding Path=Throughput, Mode=TwoWay}" Maximum="10"  Width="130" IsSnapToTickEnabled="True"  />
+                        </DockPanel>
+                    </StackPanel>
+
+                    <StackPanel Margin="5,2,0,3" Orientation="Horizontal" Height="20">
+                        <TextBlock HorizontalAlignment="Left" Margin="3,0,52,0" TextWrapping="Wrap" Text="Quantity" VerticalAlignment="Top"/>
+                        <TextBox x:Name="T_Quan" Text="{Binding Q_In}" Width="116" MaxLength="3" Margin="0,0,0,0" TextChanged="T_Quan_TextChanged" Height="20" VerticalAlignment="Bottom" />
+                        <Button x:Name="B_Up"  Margin="0,0,0,0" Content="˄" Width="20" RenderTransformOrigin="0.5,0.508" Click="B_Up_Add" />
+                        <Button x:Name="B_Down" Margin="0,0,0,0"  Content="˅" Width="20" Click="B_Up_Sub" />
+                    </StackPanel>
+
+
+
+                    <StackPanel Margin ="96,0,71.667,0" Orientation="Horizontal" HorizontalAlignment="Center" Width="187">
+                        <Button x:Name="Save" Margin="10,3,0,0" Content="Save" Width="73" Click="Save_Click"/>
+                        <Button x:Name="Reset" Margin="10,3,0,0" Content="Reset" Width="72" Click="Reset_Click"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+
+
+
+        </StackPanel>
+
+
+
+
+
+
+
+
+
+
+
+    </Grid>
+</Window>

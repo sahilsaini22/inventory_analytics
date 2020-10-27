@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<ArrayOfCategories xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Categories>
+    <Cat_id>Food</Cat_id>
+  </Categories>
+  <Categories>
+    <Cat_id>Drinks</Cat_id>
+  </Categories>
+  <Categories>
+    <Cat_id>Home</Cat_id>
+  </Categories>
+  <Categories>
+    <Cat_id>Cosmetics</Cat_id>
+  </Categories>
+  <Categories>
+    <Cat_id>Healthcare</Cat_id>
+  </Categories>
+  <Categories>
+    <Cat_id>Liquor</Cat_id>
+  </Categories>
+  <Categories>
+    <Cat_id>Stationary</Cat_id>
+  </Categories>
+  <Categories>
+    <Cat_id>Electronics</Cat_id>
+  </Categories>
+  <Categories>
+    <Cat_id>Kitchen</Cat_id>
+  </Categories>
+</ArrayOfCategories>

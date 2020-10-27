@@ -1,0 +1,173 @@
+﻿<Window x:Class="Inventory_Management.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Inventory_Management"
+        mc:Ignorable="d"
+        
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="Inventory Analytics" Height="635.828" Width="497.63" 
+        Background="#FFDFFBFF">
+    <Grid Margin="0,0,-0.333,-62.333">
+        <Grid.ColumnDefinitions>
+
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="0,10,0,0" Orientation="Vertical">
+            <StackPanel Margin="10,0,-0.333,0" Orientation="Horizontal" Height="244">
+                <StackPanel Margin="0,0,0,211" Orientation="Horizontal" Width="516" >
+                    <TextBlock  HorizontalAlignment="Left" Height="34" TextWrapping="Wrap" Text="Maintenance - View Item"  VerticalAlignment="Top" Width="344" FontSize="20" FontWeight="Bold" Margin="0,3,0,-3.667"/>
+                    <ComboBox Name="Nav" Width="120" Margin="0,0,0,0" Height="22" VerticalAlignment="Center"  SelectionChanged="ComboBox_SelectionChanged_1">
+                        <ComboBoxItem >Suggestions</ComboBoxItem>
+                        <ComboBoxItem >Custom Filter</ComboBoxItem>
+                        <ComboBoxItem Foreground="Green" IsSelected="True">View Item</ComboBoxItem>
+                        <ComboBoxItem >Add an item</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Margin="0,0,0,300.667" Orientation="Horizontal" Width="378">
+
+                </StackPanel>
+            </StackPanel>
+
+        </StackPanel>
+
+
+
+        <StackPanel Margin="5,35,161,-0.333" Orientation="Horizontal" Grid.ColumnSpan="2"/>
+
+        <Border BorderBrush="Black"  BorderThickness="1" HorizontalAlignment="Left" Height="170" 
+                VerticalAlignment="Top" Width="463" Margin="10,68,0,0">
+            <StackPanel Margin="-0.333,4.667,0,-42.667" Orientation="Vertical">
+                <StackPanel Orientation="Vertical" Height="182" VerticalAlignment="Top" Margin="55,0,0,0">
+                    <StackPanel  Name ="Sp_Search" Margin="0,30,0.333,0" Orientation="Vertical" Height="129"  >
+                        <StackPanel Orientation="Vertical" Width="120">
+                            <TextBlock TextWrapping="Wrap" Text="Search an Item" Margin="-139,0,0,0" FontWeight="Bold" FontSize="18" Height="24"/>
+
+                        </StackPanel>
+                        <StackPanel Margin="5,5,0,0" Orientation="Horizontal" Height="17">
+                            <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Item Number" VerticalAlignment="Top"/>
+                            <TextBox x:Name="Tbx_Num" TextWrapping="Wrap"  MaxLength="8" Margin="27,0,0,0"  Width="159" TextChanged="TextBoxNum_TextChanged"  VerticalAlignment="Top"/>
+                            <Button x:Name="Go" Margin="10,0,0,0" VerticalContentAlignment="Center" Content="Go" Width="75" Click="Go_Click" Height="17" VerticalAlignment="Top"/>
+                            <TextBlock Margin="5,0,0,0"  TextWrapping="Wrap" Text="OR"/>
+
+                        </StackPanel>
+                        <StackPanel Margin="5,2,0.333,0" Orientation="Horizontal" Height="18" >
+                            <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Item Description" VerticalAlignment="Top"/>
+                            <TextBox x:Name="Tbx_Des"  TextWrapping="Wrap" Margin="10,0,0,0"  Width="159" TextChanged="Tbx_Des_TextChanged" Height="17"/>
+
+
+                        </StackPanel>
+
+                        <StackPanel Margin="103,0,2.333,0" Orientation="Horizontal">
+                            <ListBox x:Name="Lbx_dummyitems" IsEnabled="True" SelectionChanged="Lbx_dummyitems_SelectionChanged"  MaxHeight="60" Visibility="Collapsed" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top" Width="158" Margin="0,-1,0,0" RenderTransformOrigin="0.5,0.5">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,3">
+                                            <TextBlock Text="{Binding Description}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+
+                    </StackPanel>
+
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+
+
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="355" VerticalAlignment="Top" Width="463" Margin="10,237,0,0" Grid.Column="0">
+
+            <StackPanel Name="SP_Details" Margin="-0.333,4.667,-21,8.667"    Orientation="Vertical">
+
+                <StackPanel Orientation="Vertical" Margin="60,10,-0.333,0" Height="279">
+                    <StackPanel Orientation="Horizontal" Margin="3,0,0,0" >
+                        <TextBlock TextWrapping="Wrap" Text="Item Details" Margin="0,0,0,0" FontWeight="Bold" FontSize="18"/>
+                    </StackPanel>
+                    <StackPanel Margin="5,5,0,0" Orientation="Horizontal" Height="17">
+                        <TextBlock HorizontalAlignment="Left" Margin="0,0,21,0" TextWrapping="Wrap" Text="Item Number" VerticalAlignment="Top"/>
+                        <TextBox x:Name="Tbx_Num1"  IsEnabled="False" TextWrapping="Wrap" Margin="27,0,0,0"  Width="159" TextChanged="Number_TextChanged" Height="17" VerticalAlignment="Top"  Text="{Binding Number}"/>
+
+                    </StackPanel>
+                    <StackPanel Margin="5,8,0.333,0" Orientation="Horizontal" Height="17">
+                        <TextBlock HorizontalAlignment="Left" IsEnabled="False" Margin="0,0,21,0"  TextWrapping="Wrap" Text="Item Description" VerticalAlignment="Top"/>
+                        <TextBox x:Name="Tbx_Des1"  IsEnabled="False" TextWrapping="Wrap" Margin="11,0,0,0.333" Text="{Binding Description}" Width="157" TextChanged="Des_TextChanged"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="5,8,0,0" Orientation="Horizontal" Height="27">
+                        <TextBlock HorizontalAlignment="Left" Margin="0,2,20,0" TextWrapping="Wrap" Text="Category" VerticalAlignment="Top"/>
+                        <ComboBox  x:Name="Category"  Text="{Binding Category}" SelectedItem="Cat"   Margin="51,0,0,0" IsEnabled="False" Width="158" SelectionChanged="ComboBox_SelectionChanged" Height="22" VerticalAlignment="Top">
+                            <ComboBoxItem Content="Food"/>
+                            <ComboBoxItem Content="Home"/>
+                            <ComboBoxItem Content="Cosmetics"/>
+                            <ComboBoxItem Content="Drinks"/>
+                            <ComboBoxItem Content="Liqour"/>
+                        </ComboBox>
+
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="5,0,72,0" Height="33">
+
+                        <TextBlock TextWrapping="Wrap"  IsEnabled="False" Text="Expiry Date" Margin="0,9,60,0" />
+                        <DatePicker  x:Name="Exp" SelectedDate="{Binding Expiry}" IsEnabled="False" Width="158" Height="24" Margin="0,2,0,0.333"/>
+
+                    </StackPanel>
+
+                    <StackPanel Margin="5,2,0,3" Orientation="Horizontal" Height="26">
+                        <TextBlock HorizontalAlignment="Left" Margin="0,0,47,0" TextWrapping="Wrap" Text="Shelf Space" VerticalAlignment="Top"/>
+                        <DockPanel Margin="9,2" Width="160">
+                            <TextBox x:Name="Sl_St" IsEnabled="False" TextWrapping="Wrap" Margin="2,0,0,0" Text="{Binding Value, ElementName=Sl_S, UpdateSourceTrigger=PropertyChanged}"  TextAlignment="Right" Width="20" DockPanel.Dock="Right" TextChanged="Tbx_Des_TextChanged"/>
+                            <Slider x:Name="Sl_S" Value="{Binding Space}" IsEnabled="False" Maximum="10"  Width="130" IsSnapToTickEnabled="True"  />
+                        </DockPanel>
+                    </StackPanel>
+
+                    <StackPanel Margin="5,2,0,3" Orientation="Horizontal" Height="26">
+                        <TextBlock HorizontalAlignment="Left" Margin="0,0,47,0" TextWrapping="Wrap" Text="Profit Margin" VerticalAlignment="Top"/>
+                        <DockPanel Margin="0,2" Width="160">
+                            <TextBox x:Name="Sl_Pt" IsEnabled="False" TextWrapping="Wrap" Margin="2,0,0,0" Text="{Binding Value, ElementName=Sl_P, UpdateSourceTrigger=PropertyChanged}"  TextAlignment="Right" Width="20" DockPanel.Dock="Right" TextChanged="Tbx_Des_TextChanged"/>
+                            <Slider x:Name="Sl_P" Value="{Binding Margin}" IsEnabled="False" Maximum="10"  Width="130" IsSnapToTickEnabled="True" ValueChanged="Sl_P_ValueChanged"  />
+                        </DockPanel>
+                    </StackPanel>
+
+                    <StackPanel Margin="5,2,0,3" Orientation="Horizontal" Height="26">
+                        <TextBlock HorizontalAlignment="Left" Margin="0,0,47,0" TextWrapping="Wrap" Text="Through-put" VerticalAlignment="Top"/>
+                        <DockPanel Margin="2,2" Width="160">
+                            <TextBox x:Name="Sl_Tt" IsEnabled="False" TextWrapping="Wrap" Margin="2,0,0,0" Text="{Binding Value, ElementName=Sl_T, UpdateSourceTrigger=PropertyChanged}"  TextAlignment="Right" Width="20" DockPanel.Dock="Right" TextChanged="Tbx_Des_TextChanged"/>
+                            <Slider x:Name="Sl_T" Value="{Binding Throughput}" IsEnabled="False" Maximum="10"  Width="130" IsSnapToTickEnabled="True"  />
+                        </DockPanel>
+                    </StackPanel>
+
+                    <StackPanel Margin="5,2,0,3" Orientation="Horizontal" Height="18">
+                        <TextBlock HorizontalAlignment="Left" Margin="0,0,10,0" IsEnabled="False" TextWrapping="Wrap" Text="Quantity in Inventory" VerticalAlignment="Top"/>
+                        <TextBox x:Name="T_Quan" Text="{Binding Q_In}" IsEnabled="False" Width="155"  TextChanged="T_Quan_TextChanged" />
+                    </StackPanel>
+
+
+                    <StackPanel Margin="5,2,0,3" Orientation="Horizontal" Height="18">
+                        <TextBlock HorizontalAlignment="Left" Margin="0,0,30,0" IsEnabled="False" TextWrapping="Wrap" Text="Quantity on Shelf" VerticalAlignment="Top"/>
+                        <TextBox x:Name="T_Quan_Sh" Text="{Binding Q_Sh}" IsEnabled="False" Width="155"  TextChanged="T_Quan_TextChanged" Height="18" VerticalAlignment="Top" />
+
+                    </StackPanel>
+
+
+
+
+
+                </StackPanel>
+                <StackPanel Margin ="25,0,60.333,0" Orientation="Horizontal" HorizontalAlignment="Center" Width="332" Height="29">
+                    <Button x:Name="Move" Margin="10,3,0,0"  IsEnabled="False" Content="Move Items" Width="84" Click="Move_Items" Height="26" VerticalAlignment="Top"/>
+                    <Button x:Name="Edit" Margin="10,0,0,0.333" IsEnabled="False" Content="Edit" Width="85" Click="Reset_Edit" Height="26" VerticalAlignment="Bottom"/>
+                    <Button x:Name="Delete" IsEnabled="False" Margin="10,3,0,0" Content="Delete" Width="85" Click="Delete_click"/>
+                </StackPanel>
+
+            </StackPanel>
+
+        </Border>
+
+    </Grid>
+</Window>
